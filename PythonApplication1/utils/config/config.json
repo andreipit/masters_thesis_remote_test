@@ -1,0 +1,53 @@
+{
+    "------------- Setup options -------------": 0,
+    "obj_mesh_dir": "objects/blocks",
+    "************* 1.2 option, default=10 ************ num_obj": 0,
+    "num_obj": 5,
+    "heightmap_resolution": 0.002,
+    "random_seed": 1234,
+    "cpu": false,
+
+    "------------- Algorithm options -------------": 0,
+    "************* 1.2 option, default=grasp_only ************* stage": 0,
+    "stage": "grasp_only",
+    "future_reward_discount": 0.5,
+    "************* 1.2 option, default=false ************* experience_replay": 0,
+    "experience_replay": true,
+    "heuristic_bootstrap": false,
+    "************* 1.2 option, default=false ************* explore_rate_decay": 0,
+    "explore_rate_decay": true,
+    "grasp_reward_threshold": 1.8,
+    "max_push_episode_length": 5,
+    "grasp_explore": false,
+    
+    "------------- Testing options -------------": 0,
+    "is_testing": false,
+    "max_test_trials": 30,
+    "test_preset_cases": false,
+    "test_preset_file": "test-10-obj-01.txt",
+    "random_scene_testing": false,
+    
+    "------------- Goal-conditioned options -------------": 0,
+    "************* 1.2 option, default=0 ************* goal_obj_idx": 0,
+    "goal_obj_idx": 4,
+    "************* 1.2 option, default=false ************* goal_conditioned": 0,
+    "goal_conditioned": true,
+    "grasp_goal_conditioned": false,
+   
+    "------------- Pre-loading and logging options -------------": 0,
+    "load_snapshot": false,
+    "snapshot_file": null,
+    "load_explore_snapshot": false,
+    "explore_snapshot_file": null,
+    "continue_logging": false,
+    "logging_directory": null,
+    "************* 1.2 option, default=false ************* save_visualizations": 0,
+    "save_visualizations": true,
+    "tensor_logging_directory": "./tensorlog",
+    "alternating_training": false,
+    "cooperative_training": false,
+
+    "------------- Earlier was generated during parse -------------": 0,
+    "workspace_limits": [[-0.724, -0.276], [-0.224, 0.224], [-0.0001, 0.4]]
+    
+}

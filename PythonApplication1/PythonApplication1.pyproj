@@ -1,0 +1,203 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>2a9d573a-1c4a-48a9-b443-6361ce07cda8</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>entry_point.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>PythonApplication1</Name>
+    <RootNamespace>PythonApplication1</RootNamespace>
+    <InterpreterId>Global|VisualStudio|eff_env38</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>--stage grasp_only --num_obj 5 --goal_conditioned --goal_obj_idx 4 --experience_replay --explore_rate_decay --save_visualizations</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="logger.py" />
+    <Compile Include="monitor.py" />
+    <Compile Include="train_loop.py" />
+    <Compile Include="proc.py" />
+    <Compile Include="robot.py" />
+    <Compile Include="simulator.py" />
+    <Compile Include="entry_point.py" />
+    <Compile Include="trainer.py" />
+    <Compile Include="utils\arg\model_backup.py" />
+    <Compile Include="utils\arg\model.py" />
+    <Compile Include="utils\arg\parser_backup.py" />
+    <Compile Include="utils\arg\parser_json.py" />
+    <Compile Include="utils\custom_types.py" />
+    <Compile Include="utils\logger\init.py" />
+    <Compile Include="utils\logger\model.py" />
+    <Compile Include="utils\models\goal_conditioned_net.py" />
+    <Compile Include="utils\models\push_grasp_net.py" />
+    <Compile Include="utils\playground\playground.py" />
+    <Compile Include="utils\playground\playground2.py" />
+    <Compile Include="utils\playground\property_example.py" />
+    <Compile Include="utils\playground\server.py" />
+    <Compile Include="utils\playground\server2.py" />
+    <Compile Include="utils\playground\unity_server.py" />
+    <Compile Include="utils\proc\action_pos.py" />
+    <Compile Include="utils\proc\action_select.py" />
+    <Compile Include="utils\proc\execute_grasp.py" />
+    <Compile Include="utils\proc\execute_push.py" />
+    <Compile Include="utils\proc\goal_cond.py" />
+    <Compile Include="utils\proc\init.py" />
+    <Compile Include="utils\proc\model.py" />
+    <Compile Include="utils\proc\pixel_pos.py" />
+    <Compile Include="utils\proc\primitive_save.py" />
+    <Compile Include="utils\robot\camera.py" />
+    <Compile Include="utils\robot\grasp.py" />
+    <Compile Include="utils\robot\gripper.py" />
+    <Compile Include="utils\robot\mask.py" />
+    <Compile Include="utils\robot\model.py" />
+    <Compile Include="utils\robot\move.py" />
+    <Compile Include="utils\robot\objects.py" />
+    <Compile Include="utils\robot\push.py" />
+    <Compile Include="utils\robot\sim.py" />
+    <Compile Include="utils\test\test_config.py" />
+    <Compile Include="utils\test\test_robot_mask.py" />
+    <Compile Include="utils\test\test_robot_objects.py" />
+    <Compile Include="utils\test\test_train_loop_steps.py" />
+    <Compile Include="utils\test\test_txt_as_inpector.py" />
+    <Compile Include="utils\trainer\backprop.py" />
+    <Compile Include="utils\trainer\fwd.py" />
+    <Compile Include="utils\trainer\get_label_value.py" />
+    <Compile Include="utils\trainer\get_push_direction_vis.py" />
+    <Compile Include="utils\trainer\get_vis.py" />
+    <Compile Include="utils\trainer\goal_fwd.py" />
+    <Compile Include="utils\trainer\init.py" />
+    <Compile Include="utils\trainer\label_value.py" />
+    <Compile Include="utils\trainer\model.py" />
+    <Compile Include="utils\trainer\preload.py" />
+    <Compile Include="utils\trainer\push_grasp_heuristic.py" />
+    <Compile Include="utils\train_loop\action.py" />
+    <Compile Include="utils\train_loop\backprop.py" />
+    <Compile Include="utils\train_loop\exploration.py" />
+    <Compile Include="utils\train_loop\exp_replay.py" />
+    <Compile Include="utils\train_loop\make_photo.py" />
+    <Compile Include="utils\train_loop\model.py" />
+    <Compile Include="utils\train_loop\restart.py" />
+    <Compile Include="utils\train_loop\runner.py" />
+    <Compile Include="utils\train_loop\snapshot.py" />
+    <Compile Include="utils\train_loop\threads_sync.py" />
+    <Compile Include="utils\utils.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
+    <Folder Include="logs\2022-06-06.17_47_17\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\color-heightmaps\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\color-images\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\depth-heightmaps\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\depth-images\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\grasped-object-heightmaps\" />
+    <Folder Include="logs\2022-06-06.17_47_17\data\grasped-object-images\" />
+    <Folder Include="logs\2022-06-06.17_47_17\info\" />
+    <Folder Include="logs\2022-06-06.17_47_17\models\" />
+    <Folder Include="logs\2022-06-06.17_47_17\recordings\" />
+    <Folder Include="logs\2022-06-06.17_47_17\transitions\" />
+    <Folder Include="logs\2022-06-06.17_47_17\transitions\data\" />
+    <Folder Include="logs\2022-06-06.17_47_17\visualizations\" />
+    <Folder Include="doc\" />
+    <Folder Include="objects\" />
+    <Folder Include="objects\blocks\" />
+    <Folder Include="objects\novel_objects\" />
+    <Folder Include="utils\" />
+    <Folder Include="utils\arg\" />
+    <Folder Include="utils\arg\__pycache__\" />
+    <Folder Include="utils\config\" />
+    <Folder Include="utils\logger\" />
+    <Folder Include="utils\models\" />
+    <Folder Include="utils\monitor\" />
+    <Folder Include="utils\proc\" />
+    <Folder Include="utils\trainer\" />
+    <Folder Include="utils\test\" />
+    <Folder Include="utils\playground\" />
+    <Folder Include="utils\robot\" />
+    <Folder Include="utils\train_loop\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|eff_env38" />
+    <InterpreterReference Include="Global|VisualStudio|eff_env38" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="doc\modules_diagram.png" />
+    <Content Include="doc\nonlocal_vars.txt" />
+    <Content Include="objects\blocks\0.obj" />
+    <Content Include="objects\blocks\1.obj" />
+    <Content Include="objects\blocks\2.obj" />
+    <Content Include="objects\blocks\3.obj" />
+    <Content Include="objects\blocks\4.obj" />
+    <Content Include="objects\blocks\6.obj" />
+    <Content Include="objects\blocks\7.obj" />
+    <Content Include="objects\blocks\8.obj" />
+    <Content Include="objects\novel_objects.png" />
+    <Content Include="objects\novel_objects\adjustable_wrench.obj" />
+    <Content Include="objects\novel_objects\a_cup.obj" />
+    <Content Include="objects\novel_objects\a_lego_duplo.obj" />
+    <Content Include="objects\novel_objects\banana.obj" />
+    <Content Include="objects\novel_objects\b_cup.obj" />
+    <Content Include="objects\novel_objects\b_toy_airplane.obj" />
+    <Content Include="objects\novel_objects\cat.obj" />
+    <Content Include="objects\novel_objects\conditioner.obj" />
+    <Content Include="objects\novel_objects\correction_fuid.obj" />
+    <Content Include="objects\novel_objects\cup_small.obj" />
+    <Content Include="objects\novel_objects\c_cup.obj" />
+    <Content Include="objects\novel_objects\c_toy_airplane.obj" />
+    <Content Include="objects\novel_objects\doraemon_bowl.obj" />
+    <Content Include="objects\novel_objects\doraemon_cup.obj" />
+    <Content Include="objects\novel_objects\doraemon_spoon.obj" />
+    <Content Include="objects\novel_objects\d_toy_airplane.obj" />
+    <Content Include="objects\novel_objects\extra_large_clamp.obj" />
+    <Content Include="objects\novel_objects\flat_screwdriver.obj" />
+    <Content Include="objects\novel_objects\fork.obj" />
+    <Content Include="objects\novel_objects\green_arrow.obj" />
+    <Content Include="objects\novel_objects\hammer.obj" />
+    <Content Include="objects\novel_objects\hello_kitty_bowl.obj" />
+    <Content Include="objects\novel_objects\hello_kitty_cup.obj" />
+    <Content Include="objects\novel_objects\knife.obj" />
+    <Content Include="objects\novel_objects\pepsi.obj" />
+    <Content Include="objects\novel_objects\phillips_screwdriver.obj" />
+    <Content Include="objects\novel_objects\pigeon.obj" />
+    <Content Include="objects\novel_objects\pure_zhen.obj" />
+    <Content Include="objects\novel_objects\realsense_box.obj" />
+    <Content Include="objects\novel_objects\redbull.obj" />
+    <Content Include="objects\novel_objects\scissors.obj" />
+    <Content Include="objects\novel_objects\tea_can1.obj" />
+    <Content Include="objects\novel_objects\tomato_soup_can.obj" />
+    <Content Include="objects\objects.png" />
+    <Content Include="readme.txt" />
+    <Content Include="utils\arg\__pycache__\model.cpython-38.pyc" />
+    <Content Include="utils\arg\__pycache__\parser.cpython-38.pyc" />
+    <Content Include="utils\config\config.json" />
+    <Content Include="utils\config\config_test.json" />
+    <Content Include="utils\monitor\proc_model.txt" />
+    <Content Include="utils\monitor\robot_model.txt" />
+    <Content Include="utils\monitor\trainer_model.txt" />
+    <Content Include="utils\playground\index.html" />
+    <Content Include="utils\test\test_txt_as_inspector.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

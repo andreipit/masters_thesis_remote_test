@@ -1,0 +1,78 @@
+train_loop changes vars:
+
+0) get_rgb:
+	MainloopModel:
+		iteration_time_0
+		color_img
+		depth_img
+0) get_heightmap
+	Proc:
+		color_heightmap
+		depth_heightmap
+		valid_depth_heightmap
+		goal_mask_heightmap
+		nonlocal_variables['border_occupy_ratio']
+
+1) save_rgb_heightmap
+	Proc:
+		writer
+	Trainer:
+		clearance_log
+	Logger:
+		no changes, just write_to_log
+	MainloopModel
+		exit_called = True
+
+2) restart
+	Proc:
+		nonlocal_variables['push_step'] = 0
+		nonlocal_variables['new_episode_flag'] = 0
+		nonlocal_variables['restart_scene'] = 0
+	Trainer:
+		model.load_state_dict
+		clearance_log.append([t.m.iteration])
+	Logger:
+		no change, just write_to_log
+	MainloopModel:
+		exit_called = True
+
+3) execute:
+	Trainer:
+		push_step_log
+	Logger:
+		no change, just write_to_log
+	MainloopModel:
+		grasp_explore_actions = np.random.uniform() < p.m.grasp_explore_prob
+		push_predictions  = t.forward or goal_forward
+		grasp_predictions = t.forward or goal_forward
+		state_feat		  = t.forward or goal_forward
+		mask
+	Proc:
+		nonlocal_variables['push_predictions'] = tl.m.push_predictions
+		nonlocal_variables['grasp_predictions'] = tl.m.grasp_predictions
+		nonlocal_variables['executing_action'] = True
+
+4) if 'prev_color_img' in locals():
+	5) runner.detect_changes, compute_labels,
+		backprop.run, exploration.run
+	6) exp_replay.run, get_samples, get_highest_sample, fwd_pass
+	7) snapshot.run
+
+8) wait proc execute end
+	while p.m.nonlocal_variables['executing_action']:
+        time.sleep(0.01)
+9) nothing
+	if m.exit_called:
+		return False #break
+
+10) nothing (makes 4 possible)
+    prev_color_img = self.threads.save(m,a,r,l,t,p) # Save information for next training step
+	
+
+
+
+
+
+
+
+
