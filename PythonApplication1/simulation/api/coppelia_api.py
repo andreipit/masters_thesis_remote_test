@@ -12,8 +12,8 @@ class CoppeliaAPI(object): # coppelia sim edu 4.3.0, bullet 2.7.8
     def connect(self):
         # Connect to simulator
         vrep.simxFinish(-1) # Just in case, close all opened connections   # reason for only one vrep opening?????
-        #self.sim_client = vrep.simxStart('127.0.0.1', 19997, True, True, 5000, 5) # Connect to V-REP on port 19997
-        self.sim_client = vrep.simxStart('192.168.43.211', 19997, True, True, 5000, 5) # Connect to V-REP on port 19997
+        self.sim_client = vrep.simxStart('127.0.0.1', 19997, True, True, 5000, 5) # Connect to V-REP on port 19997
+        #self.sim_client = vrep.simxStart('192.168.43.211', 19997, True, True, 5000, 5) # Connect to V-REP on port 19997
         if self.sim_client == -1:
             print('Failed to connect to simulation (V-REP remote API server). Exiting.')
             exit()
