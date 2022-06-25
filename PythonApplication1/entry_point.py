@@ -4,6 +4,7 @@ import numpy as np
 import time 
 from matplotlib import pyplot as plt
 import threading
+import asyncio
 
 
 # 3rd party
@@ -97,6 +98,47 @@ class EntryPoint():
 #    EntryPoint.r_connect_cammatrix_shot(a, r)
 #    r.add_objects()
 
+
+async def thread2(a, r, l, t, p, tl):
+    ## update 2 - main training
+    #while True:
+    #    if not EntryPoint.update(a, r, l, t, p, tl):
+    #        break
+
+    while True:
+        await asyncio.sleep(0.01)
+        if not EntryPoint.update(a, r, l, t, p, tl):
+            break
+        #print(2)
+
+
+async def thread1(a, r, l, t, p, tl):
+    ## update 1 - simulator
+    #def coroutine():
+    #    while True:
+    #        EntryPoint.update_proc(p)
+    #action_thread = threading.Thread(target=coroutine); action_thread.daemon = True; action_thread.start()  # daemon - thread will stop when main process exits # actually run coroutine, starts right now (not in next frame!)
+    
+
+    while True:
+        await asyncio.sleep(0.01)
+        EntryPoint.update_proc(p)
+        print(1)
+
+
+async def two_loops(a, r, l, t, p, tl):
+    task1 = asyncio.create_task(thread1(a, r, l, t, p, tl))
+    task2 = asyncio.create_task(thread2(a, r, l, t, p, tl))
+
+    print(f"started at {time.strftime('%X')}")
+
+    # Wait until both tasks are completed (should take
+    # around 2 seconds.)
+    await task1
+    await task2
+
+
+
 if __name__ == '__main__':
 
     print('begin')
@@ -112,16 +154,18 @@ if __name__ == '__main__':
 
     EntryPoint.start(a, r, l, t, p, tl)
 
-    # update 1 - simulator
-    def coroutine():
-        while True:
-            EntryPoint.update_proc(p)
-    action_thread = threading.Thread(target=coroutine); action_thread.daemon = True; action_thread.start()  # daemon - thread will stop when main process exits # actually run coroutine, starts right now (not in next frame!)
+    asyncio.run(two_loops(a, r, l, t, p, tl))
     
-    # update 2 - main training
-    while True:
-        if not EntryPoint.update(a, r, l, t, p, tl):
-            break
+    ## update 1 - simulator
+    #def coroutine():
+    #    while True:
+    #        EntryPoint.update_proc(p)
+    #action_thread = threading.Thread(target=coroutine); action_thread.daemon = True; action_thread.start()  # daemon - thread will stop when main process exits # actually run coroutine, starts right now (not in next frame!)
+    
+    ## update 2 - main training
+    #while True:
+    #    if not EntryPoint.update(a, r, l, t, p, tl):
+    #        break
 
 
 
