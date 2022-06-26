@@ -154,18 +154,18 @@ if __name__ == '__main__':
 
     EntryPoint.start(a, r, l, t, p, tl)
 
-    asyncio.run(two_loops(a, r, l, t, p, tl))
+    #asyncio.run(two_loops(a, r, l, t, p, tl))
     
-    ## update 1 - simulator
-    #def coroutine():
-    #    while True:
-    #        EntryPoint.update_proc(p)
-    #action_thread = threading.Thread(target=coroutine); action_thread.daemon = True; action_thread.start()  # daemon - thread will stop when main process exits # actually run coroutine, starts right now (not in next frame!)
+    # update 1 - simulator
+    def coroutine():
+        while True:
+            EntryPoint.update_proc(p)
+    action_thread = threading.Thread(target=coroutine); action_thread.daemon = True; action_thread.start()  # daemon - thread will stop when main process exits # actually run coroutine, starts right now (not in next frame!)
     
-    ## update 2 - main training
-    #while True:
-    #    if not EntryPoint.update(a, r, l, t, p, tl):
-    #        break
+    # update 2 - main training
+    while True:
+        if not EntryPoint.update(a, r, l, t, p, tl):
+            break
 
 
 

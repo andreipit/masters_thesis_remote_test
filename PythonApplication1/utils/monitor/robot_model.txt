@@ -17,7 +17,7 @@ goal_conditioned=True
 grasp_goal_conditioned=False
 obj_mesh_dir=E:\notes\masters_thesis_remote_test\PythonApplication1\objects\blocks
 mesh_list=['0.obj', '1.obj', '2.obj', '3.obj', '4.obj', '6.obj', '7.obj', '8.obj']
-obj_mesh_ind=[4 0 1 7 1]
+obj_mesh_ind=[2 3 6 4 1]
 obj_mesh_color=[[0.30588235 0.4745098  0.65490196]
  [0.34901961 0.63137255 0.30980392]
  [0.61176471 0.45882353 0.37254902]
@@ -31,11 +31,11 @@ test_obj_mesh_files=[]
 test_obj_mesh_colors=[]
 test_obj_positions=[]
 test_obj_orientations=[]
-object_handles=[131, 132, 133, 134, 135]
+object_handles=[146, 147, 148, 149, 150]
 ---------# created later at robot_sim.py------=0
-engine=<simulator.Simulator object at 0x00000297EFC711C0>
-UR5_target_handle=0
-RG2_tip_handle=0
+engine=<simulator.Simulator object at 0x000001D9970FF220>
+UR5_target_handle=84
+RG2_tip_handle=83
 cam_handle=85
 cam_pose=[[ 1.37678730e-07 -7.07106555e-01  7.07107007e-01 -1.00000000e+00]
  [-1.00000000e+00 -6.38652273e-07 -4.43944800e-07  0.00000000e+00]
